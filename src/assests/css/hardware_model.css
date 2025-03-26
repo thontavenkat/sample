@@ -1,0 +1,241 @@
+.nas-container { padding: 16px; width: 94%; margin: auto; overflow-x: hidden !important;}
+.header-title {font-weight: "bold !important";}
+.header-section { margin-bottom: 16px; }
+.dropdown-filter-section { margin-bottom: 16px; display: flex; flex-wrap: wrap; }
+.filter-item { min-width: 200px; }
+.dropdown-filter-label { font-weight: bold !important; margin-bottom: 4px; }
+/* Select Dropdown Styling */
+.dropdown-filter-select {
+  width: 180px; /* Set a fixed width */
+  min-height: 40px; /* Ensures consistent height */
+  display: flex;
+  align-items: center;
+}
+
+input, select, textarea,button {
+  font-size: 16px;
+}
+
+
+/* Prevent zooming on iOS when clicking select or input fields */
+.dropdown-filter-select, 
+.serial-no-input {
+  font-size: 16px; /* Ensures iOS does not trigger zoom */
+}
+
+/* Ensures the dropdown menu does not affect the height */
+.MuiSelect-select {
+  padding-right: 32px !important; /* Reserves space for the dropdown icon */
+}
+
+/* Fixes the dropdown icon position */
+.MuiSelect-icon {
+  right: 8px; /* Ensures the icon stays in place */
+  position: absolute;
+}
+
+/* Scrollable Dropdown */
+.MuiMenu-paper {
+  max-height: 200px !important; /* Limit height to enable scrolling */
+  overflow-y: auto !important;  
+  scrollbar-width: none;
+}
+
+/* Scrollbar Styling */
+.MuiMenu-paper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.MuiMenu-paper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.MuiMenu-paper::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+.table-container { overflow-x: auto; }
+
+.icon-button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .icon-button {
+    width: 40px;  /* Adjust width */
+    height: 40px; /* Adjust height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-button.primary {
+    color: #1976d2; /* Primary color */
+  }
+
+.add-button {
+    background-color: #1976d2; /* Primary blue color */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    min-width: 100px; /* Set a smaller minimum width */
+    font-size: 16px;
+  }
+  
+  .add-button:hover {
+    background-color: #1565c0; /* Slightly darker shade on hover */
+  }
+  @media (max-width: 600px) {
+    .add-button {
+      min-width: 80px; /* Even smaller width for mobile */
+      padding: 4px 10px;
+    }
+  }
+  
+
+.serial-no-container {
+    width: 180px;
+  }
+  
+  @media (max-width: 600px) { /* Adjust breakpoint as needed */
+    .serial-no-container {
+      width: 180px;
+    }
+  }
+  
+  .serial-no-label {
+    font-weight: bold !important;
+    margin-bottom: 4px;
+  }
+  
+  .serial-no-input {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .serial-no-input .MuiOutlinedInput-root {
+    padding: 0px 8px;
+  }
+  
+  .table-row-id {
+    color: #1890ff !important;
+  }
+
+  .Visibility-icon-button {
+    color: #000080 !important; /* Ensures the color is applied */
+  }
+  .place-icon-button {
+    color: #000080 !important; /* Ensures the color is applied */
+  }
+
+  .status-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between the bubble and text */
+    height: 100%; /* Ensure it takes full cell height */
+  }
+  
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevents shrinking */
+  }
+  
+  .status-active {
+    background-color: #1890ff;
+  }
+  
+  .status-inactive {
+    background-color: #dc3545;
+  }
+  
+
+
+/* For larger screens, maintain row layout */
+.row-layout {
+  flex-direction: row;
+}
+
+/* For smaller screens, stack buttons vertically */
+.column-layout {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Styling for individual buttons */
+.export-icon-button img {
+  width: 20px;
+  height: 20px;
+}
+.refresh-icon-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.map-view-btn {
+  margin-right: 4px;
+}
+.map-view-btn,
+.add-button {
+  min-width: 150px; /* Prevent shrinking */
+  max-width: 200px; /* Ensures consistency */
+  padding: 8px 16px; /* Keeps padding consistent */
+  text-align: center;
+  transition: none; /* Prevents changes on dropdown open */
+}
+
+
+.header-button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Keep icon buttons in a row */
+.header-icon-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Move action buttons to a new line on small screens */
+.Map-add-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Apply column layout only for small screens */
+@media (max-width: 600px) {
+  .nas-container{
+    overflow-y: scroll;
+    height: auto;
+  }
+  .header-button-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-icon-buttons {
+    justify-content: center;
+  }
+
+  .Map-add-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .map-view-btn,
+  .add-button {
+    width: 170px; /* Ensures a fixed width */
+    min-width: 150px; /* Prevents shrinking */
+    max-width: 200px;
+  }
+}
+
+
+/* Apply bold font weight to all table header cells */
+.MuiTableHead-root .MuiTableCell-root {
+    font-weight: bold !important;
+  }

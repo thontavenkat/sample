@@ -1,0 +1,351 @@
+.menuitemss {
+    height: 200px !important;
+    overflow-y: auto !important; /* Ensures scrolling */
+    scrollbar-width: thin;
+}
+
+
+/* Modal Container */
+.add-hardware-modal {
+    margin-top: 16px;
+    padding: 3;
+    border-radius: 8px;
+    box-shadow: 24px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .css-5c1adp-MuiContainer-root {
+    width: 95% !important;
+  }
+  
+  /* Header */
+  .add-hardware-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 8px;
+    display: flex;
+    background-color: "white";
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Scrollable Content */
+  .hardware-content {
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    flex: 1;
+    padding: 16px;
+  }
+  
+  /* Hardware Selection Box */
+  .hardware-selection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  /* Search Input */
+  .search-input {
+    width: 100%;
+  }
+  
+  .search-input .MuiInputBase-root {
+    height: 40px;
+  }
+  
+  /* Button Styles */
+  .add-button {
+    width: 147px;
+    font-size: 10px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
+  /* Form Container */
+  .hardware-form {
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+  
+  /* Grid Layout for Form Fields */
+  .hardware-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .hardware-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .add-button {
+      width: 160px;
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  
+  /* Address Fields */
+  .address-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .address-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  /* Location Fields */
+  .location-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .location-grid {
+      flex-direction: row;
+    }
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  
+  .select-branch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .select-branch-container .MuiTypography-root {
+    font-weight: 500;
+  }
+  
+  .select-branch-container .MuiTextField-root {
+    width: 100%;
+  }
+  
+  .select-branch-container .MuiInputBase-root {
+    height: 36px;
+  }
+  
+  .menuitemss {
+    max-height: 200px; /* Prevent excessive height */
+    overflow-y: auto; /* Enable scroll if needed */
+  }
+  
+  @media (max-width: 600px) {
+    .select-branch-container {
+      gap: 2px;
+    }
+  }
+  .hardware-type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .hardware-type-container .MuiTypography-root {
+    font-weight: 500;
+  }
+  
+  .hardware-type-container .MuiTextField-root {
+    width: 100%;
+  }
+  
+  .hardware-type-container .MuiInputBase-root {
+    height: 36px;
+  }
+  
+  .menuitemss {
+    max-height: 200px; /* Prevent excessive height */
+    overflow-y: auto; /* Enable scrolling if needed */
+  }
+  
+  @media (max-width: 600px) {
+    .hardware-type-container {
+      gap: 2px;
+    }
+  }
+  .name-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .name-input-container .MuiTypography-root {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .name-input-container .MuiTextField-root {
+    width: 100%;
+  }
+  
+  .name-input-container .MuiInputBase-root {
+    height: 36px;
+  }
+
+  
+  .address-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .address-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .address-grid .MuiTypography-root {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .address-grid .MuiInputBase-root {
+    height: 36px;
+  }
+  .accounting-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .accounting-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .accounting-grid .MuiTypography-root {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .accounting-grid .MuiInputBase-root {
+    height: 36px;
+  }
+  .address-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .address-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .address-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .address-grid .MuiTypography-root {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .address-grid .MuiInputBase-root {
+    height: 36px;
+  }
+  .address-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 600px) {
+    .address-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .address-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .address-grid .MuiTypography-root {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .address-grid .MuiInputBase-root {
+    height: 36px;
+  }
+  .latlong-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  @media (min-width: 600px) {
+    .latlong-container {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  .latlong-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .latlong-box .MuiTypography-root {
+    margin-bottom: 2px;
+  }
+  
+  .latlong-box .MuiInputBase-root {
+    height: 36px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @media (min-width: 600px) {
+    .latlong-box {
+      margin-left: 4px;
+    }
+  }
+          
+

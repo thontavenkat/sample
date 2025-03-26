@@ -12,16 +12,3 @@ function App() {
 
 export default App;
 
-
-// import React from "react";
-// import AddHardwareDialog from "./components/Network/New";
-
-// const App = () => {
-//   return (
-//     <div>
-//       <AddHardwareDialog />
-//     </div>
-//   );
-// };
-
-// export default App;
