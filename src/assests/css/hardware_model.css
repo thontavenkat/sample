@@ -20,11 +20,18 @@
     max-width: 800px;
     max-height: 85vh;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   .css-5c1adp-MuiContainer-root {
     width: 95% !important;
   }
-  
+  .hardware-form-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(80vh - 150px); /* Adjust based on header height */
+    scrollbar-width: thin;
+  }
+
   /* Header */
   .add-hardware-header {
     position: sticky;
@@ -48,11 +55,10 @@
   
   /* Hardware Selection Box */
   .hardware-selection {
-    display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 8px;
     width: 100%;
+    padding-left: 16px;
   }
   
   /* Search Input */
@@ -79,7 +85,7 @@
   .hardware-form {
     padding: 16px;
     border-radius: 8px;
-    margin-top: 16px;
+    /* margin-top: 16px; */
   }
   
   /* Grid Layout for Form Fields */
@@ -135,8 +141,15 @@
     justify-content: flex-start;
     gap: 16px;
     margin-top: 24px;
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
   }
-
+  @media (max-width: 600px) { /* Small screens */
+    .button-group {
+      flex-direction: column;
+      align-items: stretch; /* Full width buttons */
+      gap: 10px;
+    }
+  }
   
   .select-branch-container {
     display: flex;
@@ -340,6 +353,7 @@
     height: 36px;
     margin: 0;
     padding: 0;
+    width: 260px;
   }
   
   @media (min-width: 600px) {

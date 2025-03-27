@@ -24,6 +24,7 @@ import { Visibility, Place, Delete, Add, Public } from "@mui/icons-material";
 import exporticon from "./../../assests/images/Network/Export.png";
 import refreshicon from "./../../assests/images/Network/refresh.png";
 import AddHardwareForm from "./Hardware_Model.jsx";
+import LocationModal from "./LocationModal.jsx";
 import "./../../assests/css/optical_network.css"; // Import the CSS file
 
 const data = [
@@ -45,6 +46,8 @@ const NasTable = () => {
   const [hardwareType, setHardwareType] = useState("");
   const [branch, setBranch] = useState("");
   const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const [selectedLocation, setSelectedLocation] = useState(null);
+const [locationModalOpen, setLocationModalOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const handleSelect = (id) => {
@@ -53,6 +56,11 @@ const NasTable = () => {
     );
   };
 
+  const handleLocationClick = (nas) => {
+    setSelectedLocation(nas);
+    setLocationModalOpen(true);
+  };
+  
   const handleChangePage = (_, newPage) => setPage(newPage);
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
@@ -79,7 +87,7 @@ const NasTable = () => {
     <Box className="nas-container">
       <Grid container alignItems="center" justifyContent="space-between" className="header-section">
         <Grid item xs={12} sm="auto">
-          <Typography variant="h4" className="header-title">Optical Network</Typography>
+          <Typography sx={{ fontWeight: "bold",fontSize:"30px" }} className="header-title">Optical Network</Typography>
         </Grid>
         <Grid 
       item 
@@ -195,8 +203,11 @@ const NasTable = () => {
                 <TableCell  className="table-row-id">{row.id}</TableCell>
                 <TableCell>{row.serialNo}</TableCell>
                 <TableCell><IconButton  className="Visibility-icon-button"><Visibility /></IconButton></TableCell>
-                <TableCell><IconButton  className="place-icon-button"><Place /></IconButton></TableCell>
-                <TableCell>{row.name}</TableCell>
+                <TableCell>
+  <IconButton className="place-icon-button" onClick={() => handleLocationClick(row)}>
+    <Place />
+  </IconButton>
+</TableCell>                <TableCell>{row.name}</TableCell>
                 <TableCell>
   <Box className="status-cell">
     <Box
@@ -215,6 +226,13 @@ const NasTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+
+
+      <LocationModal
+  open={locationModalOpen}
+  handleClose={() => setLocationModalOpen(false)}
+  locationData={selectedLocation}
+/>
 
     <TablePagination rowsPerPageOptions={[5, 10, 25]} component="div" count={filteredData.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage} />
       <AddHardwareForm open={openModal} handleClose={() => setOpenModal(false)} />
