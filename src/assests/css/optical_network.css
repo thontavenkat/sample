@@ -178,7 +178,7 @@ input, select, textarea,button {
 .map-view-btn,
 .add-button {
   min-width: 150px; /* Prevent shrinking */
-  max-width: 128px; /* Ensures consistency */
+  max-width: 150px; /* Ensures consistency */
   padding: 8px 16px; /* Keeps padding consistent */
   text-align: center;
   transition: none; /* Prevents changes on dropdown open */
@@ -226,7 +226,7 @@ input, select, textarea,button {
   .map-view-btn,
   .add-button {
     min-width: 150px; /* Prevents shrinking */
-    max-width: 128px !important;
+    max-width: 150px !important;
   }
 }
 
