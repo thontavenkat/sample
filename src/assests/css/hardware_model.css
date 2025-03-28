@@ -1,365 +1,308 @@
+/* General Styling */
 .menuitemss {
-    height: 200px !important;
-    overflow-y: auto !important; /* Ensures scrolling */
-    scrollbar-width: thin;
+  height: 200px !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  max-height: 200px;
 }
-
 
 /* Modal Container */
 .add-hardware-modal {
-    margin-top: 16px;
-    padding: 3;
-    border-radius: 8px;
-    box-shadow: 24px;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    max-width: 800px;
-    max-height: 85vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  .css-5c1adp-MuiContainer-root {
-    width: 95% !important;
-  }
-  .hardware-form-container {
-    flex-grow: 1;
-    overflow-y: auto;
-    max-height: calc(80vh - 150px); /* Adjust based on header height */
-    scrollbar-width: thin;
-  }
+  margin-top: 16px;
+  padding: 3;
+  border-radius: 8px;
+  box-shadow: 24px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-  /* Header */
-  .add-hardware-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 8px;
-    display: flex;
-    background-color: "white";
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Scrollable Content */
-  .hardware-content {
-    max-height: 500px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    flex: 1;
-    padding: 16px;
-  }
-  
-  /* Hardware Selection Box */
-  .hardware-selection {
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    padding-left: 16px;
-  }
-  
-  /* Search Input */
-  .search-input {
-    width: 100%;
-  }
-  
-  .search-input .MuiInputBase-root {
-    height: 40px;
-  }
-  
-  /* Button Styles */
+.css-5c1adp-MuiContainer-root {
+  width: 95% !important;
+}
+
+.hardware-form-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(80vh - 150px);
+  scrollbar-width: thin;
+}
+
+/* Header */
+.add-hardware-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 8px;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Device-Details{
+  margin-bottom: 40px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.Location-Details{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Scrollable Content */
+.hardware-content {
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  flex: 1;
+  padding: 16px;
+}
+
+/* Hardware Selection Box */
+.hardware-selection {
+  height: 70px;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-left: 16px;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+}
+
+.search-input .MuiInputBase-root {
+  height: 40px;
+}
+
+/* Button Styles */
+.add-button {
+  width: 147px;
+  font-size: 10px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 600px) {
   .add-button {
-    width: 147px;
-    font-size: 10px;
-    padding: 6px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  }
-  
-  /* Form Container */
-  .hardware-form {
-    padding: 16px;
-    border-radius: 8px;
-    /* margin-top: 16px; */
-  }
-  
-  /* Grid Layout for Form Fields */
-  .hardware-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .hardware-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
-    .add-button {
       width: 160px;
       font-size: 14px;
       padding: 8px 12px;
-    }
   }
-  
-  /* Address Fields */
-  .address-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .address-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  /* Location Fields */
-  .location-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .location-grid {
-      flex-direction: row;
-    }
-  }
-  
-  /* Buttons */
-  .button-group {
-    display: flex;
-    justify-content: flex-start;
-    gap: 16px;
-    margin-top: 24px;
-    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
-  }
-  @media (max-width: 600px) { /* Small screens */
-    .button-group {
-      flex-direction: column;
-      align-items: stretch; /* Full width buttons */
-      gap: 10px;
-    }
-  }
-  
-  .select-branch-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .select-branch-container .MuiTypography-root {
-    font-weight: 500;
-  }
-  
-  .select-branch-container .MuiTextField-root {
-    width: 100%;
-  }
-  
-  .select-branch-container .MuiInputBase-root {
-    height: 36px;
-  }
-  
-  .menuitemss {
-    max-height: 200px; /* Prevent excessive height */
-    overflow-y: auto; /* Enable scroll if needed */
-  }
-  
-  @media (max-width: 600px) {
-    .select-branch-container {
-      gap: 2px;
-    }
-  }
-  .hardware-type-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .hardware-type-container .MuiTypography-root {
-    font-weight: 500;
-  }
-  
-  .hardware-type-container .MuiTextField-root {
-    width: 100%;
-  }
-  
-  .hardware-type-container .MuiInputBase-root {
-    height: 36px;
-  }
-  
-  .menuitemss {
-    max-height: 200px; /* Prevent excessive height */
-    overflow-y: auto; /* Enable scrolling if needed */
-  }
-  
-  @media (max-width: 600px) {
-    .hardware-type-container {
-      gap: 2px;
-    }
-  }
-  .name-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .name-input-container .MuiTypography-root {
-    font-weight: 500;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .name-input-container .MuiTextField-root {
-    width: 100%;
-  }
-  
-  .name-input-container .MuiInputBase-root {
-    height: 36px;
-  }
+}
 
-  
-  .address-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .address-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  .address-grid .MuiTypography-root {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .address-grid .MuiInputBase-root {
-    height: 36px;
-  }
+/* Form Container */
+.hardware-form {
+  padding: 16px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+/* Grid Layout for Form Fields */
+.hardware-grid,
+.ipaddress-grid,
+.address-grid,
+.accounting-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+
+.accounting-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  flex-direction: column;
+  align-items: start;
+}
+
+@media (min-width: 600px) {
   .accounting-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .accounting-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  .accounting-grid .MuiTypography-root {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .accounting-grid .MuiInputBase-root {
-    height: 36px;
-  }
-  .address-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .address-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (min-width: 900px) {
-    .address-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  .address-grid .MuiTypography-root {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .address-grid .MuiInputBase-root {
-    height: 36px;
-  }
-  .address-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  @media (min-width: 600px) {
-    .address-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (min-width: 900px) {
-    .address-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  .address-grid .MuiTypography-root {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .address-grid .MuiInputBase-root {
-    height: 36px;
-  }
-  .latlong-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    flex-direction: column;
-    align-items: start;
-  }
-  
-  @media (min-width: 600px) {
-    .latlong-container {
       flex-direction: row;
       align-items: center;
-    }
   }
-  
-  .latlong-box {
-    display: flex;
+}
+
+
+@media (min-width: 600px) {
+  .hardware-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .ipaddress-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  .accounting-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .address-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+}
+
+@media (min-width: 900px) {
+  .address-grid {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Location Fields */
+.location-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .location-grid {
+      flex-direction: row;
+  }
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .button-group {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+  }
+}
+
+/* Selection Containers */
+.select-branch-container,
+.hardware-type-container,
+.name-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select-branch-container .MuiTypography-root,
+.hardware-type-container .MuiTypography-root,
+.name-input-container .MuiTypography-root,
+.ipaddress-grid .MuiTypography-root,
+.address-grid .MuiTypography-root,
+.accounting-grid .MuiTypography-root {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.select-branch-container .MuiTextField-root,
+.hardware-type-container .MuiTextField-root,
+.name-input-container .MuiTextField-root {
+  width: 100%;
+}
+.accounting-grid .MuiTextField-root {
+  max-width: 250px; /* Adjust width as needed */
+}
+
+
+.select-branch-container .MuiInputBase-root,
+.hardware-type-container .MuiInputBase-root,
+.name-input-container .MuiInputBase-root,
+.ipaddress-grid .MuiInputBase-root,
+.address-grid .MuiInputBase-root,
+.accounting-grid .MuiInputBase-root {
+  height: 36px;
+}
+
+@media (max-width: 600px) {
+  .select-branch-container,
+  .hardware-type-container {
+      gap: 2px;
+  }
+}
+
+.accountserial-box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.accountserial-box .MuiTypography-root {
+  margin-bottom: 2px;
+}
+
+.accountserial-box .MuiInputBase-root {
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  width: 260px;
+}
+@media (max-width: 600px) {
+  .accountserial-box .MuiInputBase-root {
+    width: 215px; /* Makes it full width on small screens */
+  }
+}
+
+/* Lat-Long Fields */
+.latlong-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.latlong-box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.longitude-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adjust spacing between input and button */
+}
+
+.longitude-wrapper .MuiTextField-root,
+.latlong-box .MuiTextField-root {
+  width: 256px;
+}
+
+.longitude-wrapper .MuiButton-root {
+  white-space: nowrap;
+}
+
+/* Reduce Input Field Height */
+.longitude-wrapper .MuiInputBase-root,
+.latlong-box .MuiInputBase-root {
+  height: 36px !important; /* Adjust height */
+  font-size: 14px; /* Adjust text size if needed */
+}
+
+@media (max-width: 600px) {
+  .longitude-wrapper {
     flex-direction: column;
-    align-items: start;
+    align-items: stretch;
+    gap: 10px;
   }
-  
-  .latlong-box .MuiTypography-root {
-    margin-bottom: 2px;
+
+  .longitude-wrapper .MuiTextField-root,
+  .latlong-box .MuiTextField-root {
+    width: 215px;
   }
-  
-  .latlong-box .MuiInputBase-root {
-    height: 36px;
-    margin: 0;
-    padding: 0;
-    width: 260px;
-  }
-  
-  @media (min-width: 600px) {
-    .latlong-box {
-      margin-left: 4px;
-    }
-  }
-          
+}
 

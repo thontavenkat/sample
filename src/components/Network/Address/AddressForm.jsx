@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, TextField, Typography,Button } from "@mui/material";
 
 const AddressForm = () => {
   return (
     <><Typography sx={{ fontWeight: "bold",marginBottom:"6px" }}>Location Details:</Typography>
+    <Box className="Location-Details">
       <Box className="address-grid">
         <Box>
           <Typography>H.No</Typography>
@@ -43,14 +44,22 @@ const AddressForm = () => {
       </Box>
 
       <Box className="latlong-container">
-        <Box className="latlong-box">
-          <Typography>Latitude *</Typography>
-          <TextField fullWidth />
-        </Box>
-        <Box className="latlong-box">
-          <Typography>Longitude *</Typography>
-          <TextField fullWidth />
-        </Box>
+  <Box className="latlong-box">
+    <Typography>Latitude *</Typography>
+    <TextField fullWidth />
+  </Box>
+  
+  <Box className="latlong-box button-container">
+    <Typography>Longitude *</Typography>
+    <Box className="longitude-wrapper">
+      <TextField fullWidth />
+      <Button variant="contained" color="success">
+        Use My Current Location
+      </Button>
+    </Box>
+  </Box>
+</Box>
+
       </Box>
     </>
   );

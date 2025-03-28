@@ -6,6 +6,7 @@ const NASForm = ({ selectedHardware }) => {
   return (
     <Box className="hardware-form">
                   <Typography sx={{ fontWeight: "bold",marginBottom:"4px" }}>Device Details:</Typography>
+                  <Box className="Device-Details">
           <Box className="hardware-grid">
             <Box className="select-branch-container">
               <Typography>Select Branch *</Typography>
@@ -39,7 +40,7 @@ const NASForm = ({ selectedHardware }) => {
             </Box>
           </Box>
 
-          <Box className="address-grid">
+          <Box className="ipaddress-grid">
             <Box>
               <Typography>IP Address *</Typography>
               <TextField fullWidth />
@@ -58,26 +59,26 @@ const NASForm = ({ selectedHardware }) => {
           </Box>
 
           <Box className="accounting-grid">
-            <Box>
+            <Box className="accountserial-box">
               <Typography>Accounting Interval *</Typography>
               <TextField type="time" fullWidth />
             </Box>
-            <Box>
+            <Box className="accountserial-box">
               <Typography>Serial Number *</Typography>
               <TextField fullWidth />
             </Box>
           </Box>
-
+          </Box>
           <Box className="address-container">
         <AddressForm /> {/* Reusable AddressForm Component */}
       </Box>
 
           <Box className="button-group">
-            <Button variant="contained" color="primary">
-              Create
-            </Button>
             <Button variant="outlined" color="secondary">
               Reset
+            </Button>
+            <Button variant="contained" color="primary">
+              Create
             </Button>
           </Box>
         </Box>
