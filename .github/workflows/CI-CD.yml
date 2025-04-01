@@ -27,6 +27,7 @@ jobs:
 
       - name: Build Frontend
         if: github.ref == 'refs/heads/main'
+
         run: CI=false npm run build
 
       - name: Remove Previous Build on Server
@@ -36,6 +37,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_UAT_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+
           script: sudo rm -rf /home/ubuntu/Network-app/build
 
       - name: Transfer New Build to Server
@@ -45,6 +47,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+
           source: "build"
           target: "/home/ubuntu/Network-app/"
 
