@@ -45,7 +45,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
-          source: "build"
+          source: "build"  # Sends 'build/' as a folder
           target: "/var/www/html/"
 
       - name: Restart Nginx
