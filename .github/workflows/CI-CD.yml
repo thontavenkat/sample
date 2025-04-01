@@ -27,7 +27,6 @@ jobs:
 
       - name: Build Frontend
         if: github.ref == 'refs/heads/main'
-
         run: CI=false npm run build
 
       - name: Remove Previous Build on Server
@@ -37,8 +36,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
-
-          script: sudo rm -rf /home/ubuntu/Network-app/build
+          script: sudo rm -rf /var/www/html/*
 
       - name: Transfer New Build to Server
         if: github.ref == 'refs/heads/main'
@@ -47,9 +45,17 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
-
-          source: "build"
+          source: "/home/ubuntu/*"
           target: "/var/www/html/"
+
+      - name: Set Permissions for www-data
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST_NETWORK }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+          script: sudo chown -R www-data:www-data /var/www/html && sudo chmod -R 755 /var/www/html
 
       - name: Restart Nginx
         if: github.ref == 'refs/heads/main'
