@@ -49,7 +49,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
 
           source: "build"
-          target: "/home/ubuntu/Network-app/"
+          target: "/var/www/html/build"
 
       - name: Restart Nginx
         if: github.ref == 'refs/heads/main'
