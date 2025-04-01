@@ -34,7 +34,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.SERVER_HOST_UAT_NETWORK }}
+          host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
 
