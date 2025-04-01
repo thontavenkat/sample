@@ -43,17 +43,7 @@ jobs:
           script: |
             sudo rm -rf /var/www/html/build  # Remove previous build
 
-      # Step 3: Transfer New Build to Server
-      - name: Transfer New Build to Server
-        if: github.ref == 'refs/heads/main'
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_HOST_NETWORK }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
-          source: "build/"
-          target: "/var/www/html/"
-
+            
       # Step 4: Set proper permissions for transferred files
       - name: Set Permissions for Build Directory
         if: github.ref == 'refs/heads/main'
@@ -65,6 +55,17 @@ jobs:
           script: |
             sudo chown -R www-data:www-data /var/www/html/build
             sudo chmod -R 755 /var/www/html/build
+     
+      # Step 3: Transfer New Build to Server
+      - name: Transfer New Build to Server
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_HOST_NETWORK }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+          source: "build/"
+          target: "/var/www/html/"
 
       # Step 5: Restart Nginx
       - name: Restart Nginx
