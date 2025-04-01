@@ -1,3 +1,5 @@
+name: Full Stack CI/CD Deployment
+
 on:
   push:
     branches:
@@ -8,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v3  # Pull latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1  # Ensure only the latest commit is checked out
 
       # ---- FRONTEND DEPLOYMENT ----
       - name: Set up Node.js
@@ -25,9 +30,9 @@ jobs:
 
       - name: Build Frontend
         if: github.ref == 'refs/heads/main'
-
         run: CI=false npm run build
 
+      # Step 2: Remove Previous Build on Server
       - name: Remove Previous Build on Server
         if: github.ref == 'refs/heads/main'
         uses: appleboy/ssh-action@v0.1.10
@@ -35,9 +40,10 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+          script: |
+            sudo rm -rf /var/www/html/build  # Remove previous build
 
-          script: sudo rm -rf /home/ubuntu/Network-app/build
-
+      # Step 3: Transfer New Build to Server
       - name: Transfer New Build to Server
         if: github.ref == 'refs/heads/main'
         uses: appleboy/scp-action@v0.1.4
@@ -45,10 +51,22 @@ jobs:
           host: ${{ secrets.SERVER_HOST_NETWORK }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
-
-          source: "build"
+          source: "build/"
           target: "/var/www/html/"
 
+      # Step 4: Set proper permissions for transferred files
+      - name: Set Permissions for Build Directory
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST_NETWORK }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_NETWORK }}
+          script: |
+            sudo chown -R www-data:www-data /var/www/html/build
+            sudo chmod -R 755 /var/www/html/build
+
+      # Step 5: Restart Nginx
       - name: Restart Nginx
         if: github.ref == 'refs/heads/main'
         uses: appleboy/ssh-action@v0.1.10
